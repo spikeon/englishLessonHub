@@ -1,0 +1,124 @@
+<h1>Top English Teachers</h1>
+
+<div class="row">
+	<div class="col-md-3">
+		<div class="form-group">
+			<div class="input-group">
+
+				<input type="text" ng-model="search.query" class="form-control" placeholder="Search">
+				<span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-4"></div>
+	<div class="col-md-5 text-right">
+
+		<div class="btn-group sorts-buttons" role="group" aria-label="Sort">
+			<div class="btn" ng-class="predicate === 'random' ? 'btn-primary' : 'btn-default'" ng-click="order('random')">Random</div>
+			<div class="btn" ng-class="predicate === 'name' ? 'btn-primary' : 'btn-default'" ng-click="order('name')">
+				Name
+				<span ng-show="predicate === 'name'">
+					<span ng-show="reverse" class="glyphicon glyphicon-triangle-bottom"></span>
+					<span ng-hide="reverse" class="glyphicon glyphicon-triangle-top"></span>
+				</span>
+
+			</div>
+			<div class="btn" ng-class="predicate === 'rating' ? 'btn-primary' : 'btn-default'" ng-click="order('rating')">
+				Rating
+				<span ng-show="predicate === 'rating'">
+					<span ng-show="reverse" class="glyphicon glyphicon-triangle-bottom"></span>
+					<span ng-hide="reverse" class="glyphicon glyphicon-triangle-top"></span>
+				</span>
+			</div>
+			<div class="btn" ng-class="predicate === 'price' ? 'btn-primary' : 'btn-default'" ng-click="order('price')">
+				Price
+				<span ng-show="predicate === 'price'">
+					<span ng-show="reverse" class="glyphicon glyphicon-triangle-bottom"></span>
+					<span ng-hide="reverse" class="glyphicon glyphicon-triangle-top"></span>
+				</span>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+	<div ng-repeat="teacher in (filtered = teachersCtrl.teachers | filter:search.query | startFrom: currentPage * pageSize | limitTo: pageSize )" class="teacher">
+
+		<div class="row">
+			<div class="col-md-2 col-xs-6 col-sm-3">
+				<img ng-src="{{teacher.thumb}}">
+			</div>
+			<div class="col-md-8 hidden-xs col-sm-6">
+				<a href="teacher.php?id={{teacher.id}}" class="name">{{teacher.name}}</a><br>
+				<b>Method: </b> {{teacher.method}}<br>
+				{{teacher.country}}<br>
+				<div ng-bind-html="renderHtml(teacher.stars)"></div><br>
+
+				<p>{{teacher.desc}}</p>
+				<a class="btn btn-danger" href="teacher.php?id={{teacher.id}}">Book Lesson / Learn More</a>
+			</div>
+			<div class="col-md-2 col-xs-6 col-sm-3">
+				<div class="hidden-sm hidden-md hidden-lg hidden-xlg">
+					<a href="teacher.php?id={{teacher.id}}" class="name">{{teacher.name}}</a><br>
+					<div ng-bind-html="renderHtml(teacher.stars)"></div><br>
+				</div>
+				<div class="row">
+					<div class="ball" style="position: relative;">
+						<div class="background"></div>
+						<div class="cost">
+							<span class="unit">&euro;</span>
+							<span class="price1">{{teacher.price1}}</span>
+							<span class="price2">{{teacher.price2}}</span>
+						</div>
+						<div class="time">{{teacher.duration}} Min</div>
+					</div>
+				</div>
+				<div class="row" ng-show="teacher.freeclass == 1">
+					<div class="ball2" style="position: relative;">
+						<div class="background"></div>
+						<div class="text">
+							1st
+							Lesson<br>
+							<b>FREE!</b>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="row hidden-sm hidden-md hidden-lg hidden-xlg">
+			<div class="col-md-12">
+				<b>Method: </b> {{teacher.method}}<br>
+				{{teacher.country}}<br>
+				<p>{{teacher.desc}}</p>
+				<a class="btn btn-danger" style="width: 100%;" href="teacher.php?id={{teacher.id}}">Book Lesson / Learn More</a>
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+<div class="row" ng-hide="noOfPages === 1">
+	<div class="col-md-12 text-center">
+		<nav>
+			<ul class="pagination">
+				<li  ng-click="currentPage === 0 || setPage(currentPage-1)">
+					<a href="#" aria-label="Previous">
+						<span aria-hidden="true">&laquo;</span>
+					</a>
+				</li>
+				<li ng-repeat="n in [] | range:noOfPages" ng-class="{active: currentPage === n}" ng-click="currentPage === n || setPage(n)">
+					<a href="#">{{n+1}}</a>
+				</li>
+				<li ng-click="currentPage >= totalItems/pageSize - 1 || setPage(currentPage+1)">
+					<a href="#" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</div>

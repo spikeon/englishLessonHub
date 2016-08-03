@@ -1,0 +1,235 @@
+.sorts-buttons .glyphicon {
+  font-size: 0.8em; }
+
+.header {
+  background: #f3f4f4; }
+  .header .nav {
+    margin-top: 20px; }
+    .header .nav a {
+      padding-left: 5px;
+      padding-right: 5px; }
+  .header .logo {
+    text-align: center;
+    margin-bottom: 20px; }
+  .header .buttons {
+    position: relative; }
+    .header .buttons .student-sign-up {
+      height: 47px;
+      width: 170px;
+      position: absolute;
+      top: 20px;
+      right: 110px;
+      color: white; }
+      .header .buttons .student-sign-up .top {
+        position: absolute;
+        top: 5px;
+        left: 50px; }
+      .header .buttons .student-sign-up .bottom {
+        position: absolute;
+        top: 20px;
+        left: 50px; }
+      .header .buttons .student-sign-up .icon {
+        position: absolute;
+        top: 7px;
+        left: 10px;
+        font-size: 30px; }
+    .header .buttons .dashboard {
+      height: 47px;
+      width: 170px;
+      position: absolute;
+      top: 20px;
+      right: 110px;
+      color: white;
+      line-height: 34px;
+      padding-left: 50px; }
+      .header .buttons .dashboard .icon {
+        position: absolute;
+        top: 7px;
+        left: 10px;
+        font-size: 30px; }
+    .header .buttons .login {
+      height: 47px;
+      width: 100px;
+      position: absolute;
+      top: 20px;
+      right: 0px;
+      color: white;
+      line-height: 34px;
+      padding-left: 38px; }
+      .header .buttons .login .icon {
+        position: absolute;
+        top: 11px;
+        left: 10px;
+        font-size: 20px; }
+    .header .buttons .logout {
+      height: 47px;
+      width: 100px;
+      position: absolute;
+      top: 20px;
+      right: 0px;
+      color: white;
+      line-height: 34px;
+      padding-left: 34px; }
+      .header .buttons .logout .icon {
+        position: absolute;
+        top: 11px;
+        left: 8px;
+        font-size: 20px; }
+    .header .buttons .teacher-sign-up, .header .buttons .search-teachers, .header .buttons .go-profile {
+      height: 47px;
+      position: absolute;
+      top: 80px;
+      right: 0px;
+      width: 280px;
+      color: white; }
+      .header .buttons .teacher-sign-up .top, .header .buttons .search-teachers .top, .header .buttons .go-profile .top {
+        position: absolute;
+        top: 5px;
+        left: 50px; }
+      .header .buttons .teacher-sign-up .bottom, .header .buttons .search-teachers .bottom, .header .buttons .go-profile .bottom {
+        position: absolute;
+        top: 20px;
+        left: 50px; }
+      .header .buttons .teacher-sign-up .icon, .header .buttons .search-teachers .icon, .header .buttons .go-profile .icon {
+        position: absolute;
+        top: 7px;
+        left: 10px;
+        font-size: 30px; }
+
+.content h1 {
+  text-align: center;
+  color: #27749a; }
+.content hr.short-fat {
+  height: 5px;
+  background-color: #ccc;
+  width: 500px; }
+.content > .alert {
+  margin-top: 20px; }
+.content div.terms {
+  height: 100px;
+  border: 1px solid #ccc;
+  overflow-x: scroll;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  border-radius: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s; }
+.content .teacher {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #ccc; }
+  .content .teacher img {
+    border: 2px solid #27749a; }
+  .content .teacher a.name {
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.3em; }
+.content .ball, .content .ball2 {
+  height: 120px;
+  width: 120px; }
+  .content .ball .background, .content .ball2 .background {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 112px;
+    height: 112px;
+    background: #ccc;
+    -moz-border-radius: 56px;
+    -webkit-border-radius: 56px;
+    border-radius: 56px;
+    z-index: 10; }
+  .content .ball .cost, .content .ball2 .cost {
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    text-align: center;
+    font-size: 31px;
+    color: orangered;
+    z-index: 20;
+    font-weight: bold; }
+    .content .ball .cost .unit, .content .ball2 .cost .unit {
+      font-size: 20px;
+      position: relative;
+      top: -5px;
+      right: -5px; }
+    .content .ball .cost .price1, .content .ball2 .cost .price1 {
+      display: inline-block;
+      width: 35px; }
+    .content .ball .cost .price2, .content .ball2 .cost .price2 {
+      position: relative;
+      font-size: 18px;
+      top: -15px;
+      right: 5px; }
+  .content .ball .time, .content .ball2 .time {
+    z-index: 20;
+    position: absolute;
+    bottom: 30px;
+    left: 35px;
+    text-align: center; }
+  .content .ball .text, .content .ball2 .text {
+    z-index: 20;
+    font-weight: bold;
+    font-size: 16px;
+    position: absolute;
+    bottom: 34px;
+    left: 29px;
+    text-align: center; }
+.content .ball2 {
+  color: #fff; }
+  .content .ball2 .background {
+    background: #27749a; }
+  .content .ball2 .text {
+    left: 22px;
+    font-weight: normal;
+    font-size: 14px; }
+    .content .ball2 .text b {
+      font-size: 21px; }
+
+.footer {
+  margin-top: 50px;
+  height: 250px;
+  background: #27749a;
+  color: white; }
+  .footer h2 {
+    font-size: 20px; }
+  .footer .button {
+    display: inline-block;
+    background-color: #d9392e;
+    color: white;
+    line-height: 30px;
+    padding-left: 10px;
+    padding-right: 10px; }
+
+.sub-footer {
+  height: 50px;
+  line-height: 50px;
+  color: #ccc; }
+  .sub-footer .right {
+    text-align: right; }
+  .sub-footer a {
+    color: #ccc; }
+
+#calendar {
+  margin-top: 20px; }
+
+.fc-bgevent-skeleton {
+  pointer-events: none; }
+
+.fc-bgevent-skeleton > table {
+  pointer-events: none; }
+
+.fc-bgevent-skeleton td {
+  pointer-events: none; }
+
+.fc-bgevent-skeleton td.fc-bgevent {
+  pointer-events: auto; }
+
+/*# sourceMappingURL=style.css.map */
