@@ -1,6 +1,7 @@
 {
     "require": {
         "paypal/rest-api-sdk-php": "*",
-        "paypal/merchant-sdk-php": "*"
+        "paypal/merchant-sdk-php": "*",
+        "phpmailer/phpmailer": "^5.2"
     }
 }

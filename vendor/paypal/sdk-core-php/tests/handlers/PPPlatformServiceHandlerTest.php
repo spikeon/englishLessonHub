@@ -63,13 +63,13 @@ class PPPlatformServiceHandlerTest extends PHPUnit_Framework_TestCase {
 		$handler = new PPPlatformServiceHandler(null, 'sdkname', 'sdkversion');
 		$handler->handle($httpConfig, $req, $this->options);
 		
-		$this->assertEquals(8, count($httpConfig->getHeaders()), "Basic headers not added");
+		$this->assertEquals(9, count($httpConfig->getHeaders()), "Basic headers not added");
 		
 		$httpConfig = new PPHttpConfig();
 		$handler = new PPPlatformServiceHandler('certuser', 'sdkname', 'sdkversion');
 		$handler->handle($httpConfig, $req, $this->options);
 		
-		$this->assertEquals(6, count($httpConfig->getHeaders()));
+		$this->assertEquals(7, count($httpConfig->getHeaders()));
 		$this->assertEquals('certuser', $req->getCredential()->getUsername());
 	}
 	

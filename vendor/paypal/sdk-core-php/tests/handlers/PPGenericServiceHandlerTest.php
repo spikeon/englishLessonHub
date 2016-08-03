@@ -30,7 +30,7 @@ class PPGenericServiceHandlerTest extends PHPUnit_Framework_TestCase {
 		);
 		
 		$headers = $httpConfig->getHeaders();		
-		$this->assertEquals(5, count($headers));
+		$this->assertEquals(6, count($headers));
 		$this->assertArrayHasKey('X-PAYPAL-DEVICE-IPADDRESS', $headers);
 		$this->assertArrayHasKey('X-PAYPAL-REQUEST-SOURCE', $headers);		
 		$this->assertEquals($bindingType, $headers['X-PAYPAL-REQUEST-DATA-FORMAT']);

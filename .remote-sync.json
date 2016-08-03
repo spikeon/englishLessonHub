@@ -1,0 +1,15 @@
+{
+  "uploadOnSave": true,
+  "useAtomicWrites": true,
+  "deleteLocal": false,
+  "hostname": "englishlessonhub.com",
+  "ignore": [
+    ".remote-sync.json",
+    ".git/**"
+  ],
+  "username": "spikeon",
+  "password": "m00c0wz88",
+  "watch": [],
+  "transport": "scp",
+  "target": "/public_html/"
+}

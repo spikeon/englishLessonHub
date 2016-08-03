@@ -27,6 +27,8 @@ if(!empty($_POST)){
 			'X-Mailer: PHP/' . phpversion();
 
 		mail($to, $subject, $message, $headers);
+
+		
 	}
 
 	echo "<div class='alert alert-success' role='alert'><b>Password Changed</b> Please check your email address</div>";

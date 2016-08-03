@@ -462,8 +462,8 @@ function auth($user, $pass, $remember){
 			<option timeZoneId='81' gmtAdjustment='GMT+12:00' useDaylightTime='0' value='12'>(GMT+12:00) Fiji, Kamchatka, Marshall Is.</option>
 			<option timeZoneId='82' gmtAdjustment='GMT+13:00' useDaylightTime='0' value='13'>(GMT+13:00) Nuku'alofa</option>
 		</select>";
-					
-		
+
+
 	}
 
 function array_sort($array, $on, $order=SORT_ASC)
@@ -546,4 +546,39 @@ function get_ip(){
 		$ip = $_SERVER['REMOTE_ADDR'];
 	}
 	return $ip;
+}
+
+
+
+function send_mail($to, $subject, $body, $attachments = []){
+
+	global $mailConfig;
+
+	$mail = new PHPMailer;
+
+	//$mail->SMTPDebug = 3;                               // Enable verbose debug output
+
+	$mail->isSMTP();                                      // Set mailer to use SMTP
+	$mail->Host 		= $mailConfig['server'];  // Specify main and backup SMTP servers
+	$mail->SMTPAuth 	= true;                               // Enable SMTP authentication
+	$mail->Username 	= $mailConfig['username'];                 // SMTP username
+	$mail->Password 	= $mailConfig['password'];                           // SMTP password
+	$mail->SMTPSecure 	= $mailConfig['securityType'];                            // Enable TLS encryption, `ssl` also accepted
+	$mail->Port 		= $mailConfig['port'];                                    // TCP port to connect to
+
+	$mail->setFrom($mailConfig['from'], 'Mailer');
+	$mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+
+	foreach((array)$attachments as $attachment) $mail->addAttachment($attachment);
+
+	$mail->isHTML(true);                                  // Set email format to HTML
+
+	$mail->Subject = $subject;
+	$mail->Body    = $body;
+	$mail->AltBody = strip_tags($body);
+
+	if(!$mail->send()) return false;
+	else return true;
+
+
 }

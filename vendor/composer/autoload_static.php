@@ -9,6 +9,10 @@ class ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db
     public static $prefixesPsr0 = array (
         'P' => 
         array (
+            'Psr\\Log\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/psr/log',
+            ),
             'PayPal\\Service' => 
             array (
                 0 => __DIR__ . '/..' . '/paypal/merchant-sdk-php/lib',
@@ -37,10 +41,22 @@ class ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db
         ),
     );
 
+    public static $classMap = array (
+        'EasyPeasyICS' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/EasyPeasyICS.php',
+        'PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
+        'PHPMailerOAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmaileroauth.php',
+        'PHPMailerOAuthGoogle' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmaileroauthgoogle.php',
+        'POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.pop3.php',
+        'SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.smtp.php',
+        'ntlm_sasl_client_class' => __DIR__ . '/..' . '/phpmailer/phpmailer/extras/ntlm_sasl_client.php',
+        'phpmailerException' => __DIR__ . '/..' . '/phpmailer/phpmailer/class.phpmailer.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixesPsr0 = ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db::$classMap;
 
         }, null, ClassLoader::class);
     }

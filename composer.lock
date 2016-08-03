@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "36ab4de2e35ac4d4756a8d73b24e90dd",
-    "content-hash": "83d9b99731155755ea6930522987c9da",
+    "hash": "ab0d280b63d7f2bc45c8773983aa3e60",
+    "content-hash": "3f7774245622f9a467a9b907d85cd1ad",
     "packages": [
         {
             "name": "paypal/merchant-sdk-php",
@@ -57,22 +57,23 @@
         },
         {
             "name": "paypal/rest-api-sdk-php",
-            "version": "v1.6.4",
+            "version": "1.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paypal/PayPal-PHP-SDK.git",
-                "reference": "06837d290c4906578cfd92786412dff330a1429c"
+                "reference": "d62e8db407827229c6c7aabfa54792d0113b99e4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/06837d290c4906578cfd92786412dff330a1429c",
-                "reference": "06837d290c4906578cfd92786412dff330a1429c",
+                "url": "https://api.github.com/repos/paypal/PayPal-PHP-SDK/zipball/d62e8db407827229c6c7aabfa54792d0113b99e4",
+                "reference": "d62e8db407827229c6c7aabfa54792d0113b99e4",
                 "shasum": ""
             },
             "require": {
                 "ext-curl": "*",
                 "ext-json": "*",
-                "php": ">=5.3.0"
+                "php": ">=5.3.0",
+                "psr/log": "1.0.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "3.7.*"
@@ -101,20 +102,20 @@
                 "rest",
                 "sdk"
             ],
-            "time": "2016-01-20 17:45:52"
+            "time": "2016-07-15 20:42:18"
         },
         {
             "name": "paypal/sdk-core-php",
-            "version": "v3.2.4",
+            "version": "3.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paypal/sdk-core-php.git",
-                "reference": "16b01e8e05f18538ff8dcce3292f0ada4eb4969b"
+                "reference": "e74083dbd0a9375c616b71cf0188dce87e5688ec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paypal/sdk-core-php/zipball/16b01e8e05f18538ff8dcce3292f0ada4eb4969b",
-                "reference": "16b01e8e05f18538ff8dcce3292f0ada4eb4969b",
+                "url": "https://api.github.com/repos/paypal/sdk-core-php/zipball/e74083dbd0a9375c616b71cf0188dce87e5688ec",
+                "reference": "e74083dbd0a9375c616b71cf0188dce87e5688ec",
                 "shasum": ""
             },
             "require": {
@@ -147,7 +148,105 @@
                 "php",
                 "sdk"
             ],
-            "time": "2016-01-20 17:53:01"
+            "time": "2016-05-16 18:04:26"
+        },
+        {
+            "name": "phpmailer/phpmailer",
+            "version": "v5.2.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPMailer/PHPMailer.git",
+                "reference": "1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a",
+                "reference": "1d85f9ef3ecfc42bbc4f3c70d5e37ca9a65f629a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpdocumentor/phpdocumentor": "*",
+                "phpunit/phpunit": "4.7.*"
+            },
+            "suggest": {
+                "league/oauth2-google": "Needed for Google XOAUTH2 authentication"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "class.phpmailer.php",
+                    "class.phpmaileroauth.php",
+                    "class.phpmaileroauthgoogle.php",
+                    "class.smtp.php",
+                    "class.pop3.php",
+                    "extras/EasyPeasyICS.php",
+                    "extras/ntlm_sasl_client.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "LGPL-2.1"
+            ],
+            "authors": [
+                {
+                    "name": "Jim Jagielski",
+                    "email": "jimjag@gmail.com"
+                },
+                {
+                    "name": "Marcus Bointon",
+                    "email": "phpmailer@synchromedia.co.uk"
+                },
+                {
+                    "name": "Andy Prevost",
+                    "email": "codeworxtech@users.sourceforge.net"
+                },
+                {
+                    "name": "Brent R. Matzelle"
+                }
+            ],
+            "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
+            "time": "2016-06-06 09:09:37"
+        },
+        {
+            "name": "psr/log",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/log.git",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "reference": "fe0936ee26643249e916849d48e3a51d5f5e278b",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Psr\\Log\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for logging libraries",
+            "keywords": [
+                "log",
+                "psr",
+                "psr-3"
+            ],
+            "time": "2012-12-21 11:40:51"
         }
     ],
     "packages-dev": [],

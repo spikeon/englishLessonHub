@@ -43,7 +43,7 @@ class PPMerchantServiceHandlerTest extends PHPUnit_Framework_TestCase {
 		$handler = new PPMerchantServiceHandler(null, 'sdkname', 'sdkversion');
 		$handler->handle($httpConfig, $req, $this->options);
 		
-		$this->assertEquals(4, count($httpConfig->getHeaders()), "Basic headers not added");
+		$this->assertEquals(5, count($httpConfig->getHeaders()), "Basic headers not added");
 		
 	}
 	

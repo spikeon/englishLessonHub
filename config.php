@@ -33,17 +33,26 @@
 		'maxFreeClasses' => 5
 	];
 
-	$pp_config = array (
+	$pp_config = [
 		'mode' => 'live',
 		'acct1.UserName' => 'robbybauer_api1.hotmail.com',
 		'acct1.Password' => 'QF8HKXQQJLB2NMS2',
 		'acct1.Signature' => 'Aww0oyur6.mR-CdnjKoRmPVCeHDBASA0Lgz0ilBzKh3059KTyB7u4iMG'
-	);
+	];
 
-	$pp_app_config = array(
+	$pp_app_config = [
 		'id' => 'AbKxI0qChgXyn7HGzmZ5ex3-_ynHcuxowk0he3TqHxhb3MYCWRK4drPlFumYGZI2tC7XFZXgdC9KM68Q',
 		'secret' => 'EAdZToQDUSkzf0SA5CeqMwe-8McukfLzjEKcYXGTVbCGWV4jINbnz9Ty-iSdrMwfhTTufVRv_rwCXg7Q'
-	);
+	];
+
+	$mailConfig = [
+			'server' => 'securees18.sgcpanel.com',
+			'username' => 'admin@englishlessonhub.com',
+			'password' => 'english_A!',
+			'securityType' => 'admin@englishlessonhub.com',
+			'port' => '465',
+			'from' => 'admin@englishlessonhub.com',
+	];
 
 
 	$db = new PDO("mysql:host=localhost;dbname={$db_info['db']};charset=utf8", $db_info['user'], $db_info['pass']);
