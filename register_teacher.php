@@ -4,13 +4,15 @@
 	<script>
 
 		jQuery(window).ready(function($){
-
+			var check_fail(){
+				if($('#password2').parent().hasClass('has-warning')) return true;
+				if($('#username').parent().hasClass('has-warning')) return true;
+				if($('#email').parent().hasClass('has-warning')) return true;
+				return false;
+			}
 			var check_disable = function(){
-				var fail = false;
-				if($('#password2').parent().hasClass('has-warning')) fail = true;
-				if($('#username').parent().hasClass('has-warning')) fail = true;
-				if($('#email').parent().hasClass('has-warning')) fail = true;
-
+				var fail = check_fail();
+				
 				$('#submit').prop("disabled",fail);
 			};
 
