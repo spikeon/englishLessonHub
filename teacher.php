@@ -61,7 +61,6 @@
 					var chunks = [];
 					var step = teacher.duration * 60 * 1000;
 
-					console.log(current_date.toDateString() + " - " + i);
 
 					$.each(teacher.availability, function (k, available) {
 						if (available.day == current_date.getDay()) {
@@ -115,6 +114,10 @@
 				$.each(day_times, function (day, times) {
 					day = day * 1;
 					var day_date = new Date(day);
+
+
+					console.log(day_date.toDateString() + " - " + day);
+
 					if (times.length > 0) {
 						events_list.push({
 							start: day_date.getFullYear() + '-' + ( day_date.getMonth() <= 8 ? "0" : "") + (day_date.getMonth() + 1) + '-' + (day_date.getDate() <= 8 ? "0" : "") + (day_date.getDate() + 1),
