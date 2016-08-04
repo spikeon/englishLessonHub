@@ -12,7 +12,6 @@
 			};
 			var check_disable = function(){
 				var fail = check_fail();
-
 				$('#submit').prop("disabled",fail);
 			};
 
@@ -81,7 +80,7 @@
 
 			});
 
-			$('#submit').prop("disabled",false);
+			check_disable();
 
 		});
 	</script>
