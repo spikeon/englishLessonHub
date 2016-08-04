@@ -231,7 +231,7 @@
 
 										<div class="input-group">
 											<span class="input-group-addon">&euro;</span>
-											<input type="number" class="form-control" id="price" name="price" placeholder="Price" required>
+											<input type="number" class="form-control" min="1" id="price" name="price" placeholder="Price" required>
 											<span class="input-group-addon">.00</span>
 										</div>
 									</div>
