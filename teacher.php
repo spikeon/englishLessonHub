@@ -7,7 +7,11 @@
 		echo "This teacher has been banned";
 	}
 	else {
-
+		$teacher->password = "";
+		$teacher->email = "";
+		$teacher->skype = "";
+		$teacher->paypal = "";
+		
 		?>
 		<script>
 			<?php echo "var teacher = ". json_encode($teacher).";"; ?>
