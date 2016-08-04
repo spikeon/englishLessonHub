@@ -6,6 +6,20 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db
 {
+    public static $prefixLengthsPsr4 = array (
+        'D' => 
+        array (
+            'Dotenv\\' => 7,
+        ),
+    );
+
+    public static $prefixDirsPsr4 = array (
+        'Dotenv\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
+        ),
+    );
+
     public static $prefixesPsr0 = array (
         'P' => 
         array (
@@ -55,6 +69,8 @@ class ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db::$prefixDirsPsr4;
             $loader->prefixesPsr0 = ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitf7ef138a1f4ebcd41c009ffa7c7f95db::$classMap;
 
