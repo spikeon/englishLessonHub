@@ -52,6 +52,7 @@
 			'securityType' => 'ssl',
 			'port' => '465',
 			'from' => 'admin@englishlessonhub.com',
+			'from_name' => 'English Lesson Hub'
 	];
 
 

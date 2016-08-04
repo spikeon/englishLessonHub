@@ -582,7 +582,7 @@ function send_mail($to, $subject, $body, $attachments = []){
 	$mail->SMTPSecure 	= $mailConfig['securityType'];                            // Enable TLS encryption, `ssl` also accepted
 	$mail->Port 		= $mailConfig['port'];                                    // TCP port to connect to
 
-	$mail->setFrom($mailConfig['from'], 'Mailer');
+	$mail->setFrom($mailConfig['from'], $mailConfig['from_name']);
 	$mail->addAddress($to);     // Add a recipient
 
 	foreach((array)$attachments as $attachment) $mail->addAttachment($attachment);
