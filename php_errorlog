@@ -68,3 +68,14 @@ Stack trace:
 #3 /home/englis06/public_html/payment_start.php(50): PayPal\Service\PayPalAPIInterfaceServiceService->SetExpressCheckout(Object(PayPal\PayPalAPI\SetExpressCheckoutReq))
 #4 {main}
   thrown in /home/englis06/public_html/vendor/paypal/sdk-core-php/lib/PayPal/Core/PPHttpConnection.php on line 95
+[03-Aug-2016 22:05:40 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:05:56 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:06:01 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:07:21 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:11:31 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:17:26 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:19:47 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:19:58 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:20:04 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:22:07 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
+[03-Aug-2016 22:22:13 CST6CDT] PHP Fatal error:  Call to undefined function phpThumbURL() in /home/englis06/public_html/class/teacher.class.php on line 57
