@@ -42,7 +42,7 @@
 	<script src="angular/app.js"></script>
 
 	<script>
-		$(window).load(function(){
+		$(function(){ 
 			var wh = $( window ).height();
 			var hh = $(".header").outerHeight();
 			var fh = $(".footer").outerHeight();

@@ -1,4 +1,5 @@
-$(window).load(function() {
+//$(window).load(function() {
+$(function(){
 	var availctr = 0;
 	$('#availabilityadmin').each(function(){
 		var $admin = $(this);
