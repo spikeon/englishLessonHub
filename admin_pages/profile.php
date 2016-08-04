@@ -59,7 +59,7 @@ if(login_type() == 'teacher'){
 				<div class="col-md-6">
 					<div class="form-group">
 						<label for="email" required>Email address</label>
-						<input type="email" class="form-control" id="email" name="email" placeholder="Email"  value="<?php echo $teacher->email; ?>">
+						<input type="email" class="form-control" id="email" name="email" placeholder="Email"  value="<?php echo $teacher->email; ?>" disabled>
 					</div>
 				</div>
 				<div class="col-md-6">
@@ -202,7 +202,7 @@ if(!empty($_POST)){
 			<div class="col-md-6">
 				<div class="form-group">
 					<label for="email" required>Email address</label>
-					<input type="email" class="form-control" id="email" name="email" placeholder="Email"  value="<?php echo $student->email; ?>">
+					<input type="email" class="form-control" id="email" name="email" placeholder="Email"  value="<?php echo $student->email; ?>" disabled>
 				</div>
 			</div>
 			<div class="col-md-6">
