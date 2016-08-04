@@ -120,8 +120,8 @@
 					if (times.length > 0) {
 
 						var temp = {
-							start: day_date.getFullYear() + '-' + ( day_date.getMonth() <= 8 ? "0" : "") + (day_date.getMonth() + 1) + '-' + (day_date.getDate() <= 8 ? "0" : "") + (day_date.getDate() + 1),
-							end: day_date.getFullYear() + '-' + ( day_date.getMonth() <= 8 ? "0" : "") + (day_date.getMonth() + 1) + '-' + (day_date.getDate() <= 8 ? "0" : "") + (day_date.getDate() + 2),
+							start: 	day_date.getFullYear() + '-' + ( day_date.getMonth() <= 8 ? "0" : "") + (day_date.getMonth() + 1) + '-' + (day_date.getDate() <= 9 ? "0" : "") + (day_date.getDate()),
+							end: 	day_date.getFullYear() + '-' + ( day_date.getMonth() <= 8 ? "0" : "") + (day_date.getMonth() + 1) + '-' + (day_date.getDate() <= 8 ? "0" : "") + (day_date.getDate() + 1),
 							overlap: false,
 							rendering: 'background',
 							color: '#89E894',
