@@ -61,7 +61,7 @@
 					var chunks = [];
 					var step = teacher.duration * 60 * 1000;
 
-					console.log(current_date.toDateString());
+					console.log(current_date.toDateString() + " - " + i);
 
 					$.each(teacher.availability, function (k, available) {
 						if (available.day == current_date.getDay()) {
