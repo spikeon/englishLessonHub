@@ -2,17 +2,28 @@
 	include('header.php');
 	?>
 	<script>
+
 		jQuery(window).ready(function($){
+
+			var check_disable = function(){
+				var fail = false;
+				if($('#password2').parent().hasClass('has-warning')) fail = true;
+				if($('#username').parent().hasClass('has-warning')) fail = true;
+				if($('#email').parent().hasClass('has-warning')) fail = true;
+
+				$('#submit').prop("disabled",fail);
+			};
+
 			$('#password2').keyup(function(){
 				if($(this).val() == $('#password').val()){
-					$('#submit').prop("disabled",false);
 					$(this).parent().find('.form-control-feedback').hide();
 					$(this).parent().removeClass('has-warning has-feedback');
+					check_disable();
 				}
 				else {
-					$('#submit').prop("disabled", true);
 					$(this).parent().find('.form-control-feedback').show();
 					$(this).parent().addClass('has-warning has-feedback');
+					check_disable();
 				}
 			});
 			$('#username').blur(function(){
@@ -25,16 +36,16 @@
 					},
 					function(data){
 						if(data.unique){
-							$('#submit').prop("disabled",false);
 							$('#username').parent().find('.form-control-feedback').hide();
 							$('#username').parent().find('.help-block').hide();
 							$('#username').parent().removeClass('has-warning has-feedback');
+							check_disable();
 						}
 						else {
-							$('#submit').prop("disabled", true);
 							$('#username').parent().find('.form-control-feedback').show();
 							$('#username').parent().find('.help-block').show();
 							$('#username').parent().addClass('has-warning has-feedback');
+							check_disable();
 						}
 
 					}
@@ -51,16 +62,16 @@
 					},
 					function(data){
 						if(data.unique){
-							$('#submit').prop("disabled",false);
 							$('#email').parent().find('.form-control-feedback').hide();
 							$('#email').parent().find('.help-block').hide();
 							$('#email').parent().removeClass('has-warning has-feedback');
+							check_disable();
 						}
 						else {
-							$('#submit').prop("disabled", true);
 							$('#email').parent().find('.form-control-feedback').show();
 							$('#email').parent().find('.help-block').show();
 							$('#email').parent().addClass('has-warning has-feedback');
+							check_disable();
 						}
 
 					}
