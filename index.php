@@ -1,4 +1,4 @@
-<?php 
+<?php
 	include('header.php');
 	$teachers = [];
 	foreach ($db->query('SELECT id FROM teacher WHERE ban = 0') as $row) {
