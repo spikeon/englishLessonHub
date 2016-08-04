@@ -116,9 +116,10 @@
 					var day_date = new Date(day);
 
 
-					console.log(day_date.toDateString() + " - " + day);
 
 					if (times.length > 0) {
+
+						console.log(day_date.toDateString() + " - " + day);
 						events_list.push({
 							start: day_date.getFullYear() + '-' + ( day_date.getMonth() <= 8 ? "0" : "") + (day_date.getMonth() + 1) + '-' + (day_date.getDate() <= 8 ? "0" : "") + (day_date.getDate() + 1),
 							end: day_date.getFullYear() + '-' + ( day_date.getMonth() <= 8 ? "0" : "") + (day_date.getMonth() + 1) + '-' + (day_date.getDate() <= 8 ? "0" : "") + (day_date.getDate() + 2),
