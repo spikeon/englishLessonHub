@@ -1,4 +1,4 @@
-var myVar = setInterval(function(){ myTimer() }, 1000);
+var myVar = setInterval(function(){ myTimer(); }, 1000);
 $(window).load(function(){
 	$('.msg').hide();
 });
@@ -202,7 +202,7 @@ function myTimer() {
 				lastchange : $('div.blackboard').data('lastchanged')
 			},
 			function(data){
-				if(data.changed != false) {
+				if(data.changed !== false) {
 					$('div.blackboard').data('lastchanged', data.data.timestamp);
 					$('div.blackboard').html(data.data.content);
 				}
