@@ -11,7 +11,7 @@
 		$teacher->email = "";
 		$teacher->skype = "";
 		$teacher->paypal = "";
-		
+
 		?>
 		<script>
 			<?php echo "var teacher = ". json_encode($teacher).";"; ?>
@@ -60,6 +60,8 @@
 					var current_date = new Date(current_start);
 					var chunks = [];
 					var step = teacher.duration * 60 * 1000;
+
+					console.log(current_date.toDateString());
 
 					$.each(teacher.availability, function (k, available) {
 						if (available.day == current_date.getDay()) {
