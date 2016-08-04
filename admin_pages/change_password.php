@@ -1,14 +1,15 @@
 <?php
 if(!empty($_POST)){
+
 	if($_POST['pw1'] == "" || $_POST['pw2'] == "") echo "<div class='alert alert-danger' role='alert'>Passwords Cannot Be Blank</div>";
 	else if($_POST['pw1'] == $_POST['pw2']) {
-		update_teacher(login_id(), ['password' => $_POST['pw1']]);
+		if(login_type() == 'teacher') update_teacher(login_id(), ['password' => $_POST['pw1']]);
+		else update_student(login_id(), ['password' => $_POST['pw1']]);
 		echo "<div class='alert alert-success' role='alert'>Password Changed</div>";
 	}
 	else echo "<div class='alert alert-danger' role='alert'>Passwords Must Match</div>";
-
 }
-$teacher = get_teacher(login_id());
+else{
 ?>
 
 <form method="post" enctype="multipart/form-data">
@@ -33,3 +34,4 @@ $teacher = get_teacher(login_id());
 	</div>
 
 </form>
+<?php } ?>

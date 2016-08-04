@@ -49,7 +49,7 @@
 			'server' => 'securees18.sgcpanel.com',
 			'username' => 'admin@englishlessonhub.com',
 			'password' => 'english_A!',
-			'securityType' => 'admin@englishlessonhub.com',
+			'securityType' => 'ssl',
 			'port' => '465',
 			'from' => 'admin@englishlessonhub.com',
 	];

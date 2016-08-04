@@ -292,12 +292,28 @@
 		$e = $email;
 		$stmt->execute();
 		if($stmt->rowCount() == 0) return false;
-		else if($sth->rowCount() == 1) {
+		else if($stmt->rowCount() == 1) {
 			$row = $stmt->fetchObject();
 			return $row->id;
 		}
 		else return false;
 	}
+
+	function get_student_id_by_email($email){
+		global $db;
+		$sql = "SELECT * FROM student WHERE email = ?";
+		$stmt = $db->prepare($sql);
+		$stmt->bindParam(1, $e);
+		$e = $email;
+		$stmt->execute();
+		if($stmt->rowCount() == 0) return false;
+		else if($stmt->rowCount() == 1) {
+			$row = $stmt->fetchObject();
+			return $row->id;
+		}
+		else return false;
+	}
+
 
 function auth($user, $pass, $remember){
 		global $db, $admin_info;
@@ -567,7 +583,7 @@ function send_mail($to, $subject, $body, $attachments = []){
 	$mail->Port 		= $mailConfig['port'];                                    // TCP port to connect to
 
 	$mail->setFrom($mailConfig['from'], 'Mailer');
-	$mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+	$mail->addAddress($to);     // Add a recipient
 
 	foreach((array)$attachments as $attachment) $mail->addAttachment($attachment);
 
@@ -577,7 +593,13 @@ function send_mail($to, $subject, $body, $attachments = []){
 	$mail->Body    = $body;
 	$mail->AltBody = strip_tags($body);
 
-	if(!$mail->send()) return false;
+
+
+	if(!$mail->send()){
+		echo $mail->ErrorInfo;
+		//die();
+		return false;
+	}
 	else return true;
 
 

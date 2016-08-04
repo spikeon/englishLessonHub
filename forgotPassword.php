@@ -14,61 +14,69 @@ if(logged_in()) echo "<script>window.location = 'admin.php';</script>";
 if(!empty($_POST)){
 
 	$pw = substr(md5(uniqid()), 0, 8);
+	$type = 'teacher';
 	$id = get_teacher_id_by_email($_POST['email']);
+	if(!$id){
+		$type = student;
+		$id = get_student_id_by_email($_POST['email']);
+	}
+
 	if($id) {
-		update_teacher($id, ['password' => $pw]);
+
+		if($type == 'teacher') update_teacher($id, ['password' => $pw]);
+		else update_student($id, ['password' => $pw] );
 
 		//TODO: Make password reset email
 
 		$to = $_POST['email'];
 		$subject = 'ELH Password Reset';
 		$message = 'Your new password is: '.$pw;
-		$headers = 'From: webmaster@englishlessonhub.com' . "\r\n" .
-			'X-Mailer: PHP/' . phpversion();
 
-		mail($to, $subject, $message, $headers);
+		//mail($to, $subject, $message, $headers);
 
-		
+		send_mail($to, $subject, $message);
+
 	}
 
-	echo "<div class='alert alert-success' role='alert'><b>Password Changed</b> Please check your email address</div>";
+	echo "<div class='alert alert-success' role='alert'><b>Password Changed</b> Please check your email address.</div>";
 
 }
+else{
 
-?>
+	?>
 
-	<form method="post">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
+		<form method="post">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3">
 
-				<div class="row">
-					<div class="col-md-12">
-						<div class="form-group">
-							<label class="sr-only" for="email" required>Email Address</label>
-							<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label class="sr-only" for="email" required>Email Address</label>
+								<input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="row">
-					<div class="col-md-12">
-						<p>Entering your email and pressing Reset Password will cause a new password to be generated and emailed to your email address.</p>
+					<div class="row">
+						<div class="col-md-12">
+							<p>Entering your email and pressing Reset Password will cause a new password to be generated and emailed to your email address.</p>
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div class="form-group text-right">
-							<input type="submit" class="btn btn-primary" value="Reset Password">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group text-right">
+								<input type="submit" class="btn btn-primary" value="Reset Password">
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</form>
+		</form>
 
-<?php
+	<?php
 
-
+}
 
 ?>
 <?php include('footer.php'); ?>
