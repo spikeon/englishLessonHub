@@ -115,8 +115,6 @@
 					day = day * 1;
 					var day_date = new Date(day);
 
-
-
 					if (times.length > 0) {
 
 						var temp = {
@@ -128,8 +126,6 @@
 							className: 'classes-here',
 							description: day
 						};
-
-						console.log(temp.start + " - " + temp.end);
 
 						events_list.push(temp);
 					}
