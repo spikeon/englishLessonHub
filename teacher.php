@@ -15,7 +15,7 @@
 		?>
 		<script>
 			<?php echo "var teacher = ". json_encode($teacher).";"; ?>
-			console.log(teacher);
+//			console.log(teacher);
 			function compare_start_time(a, b) {
 				if (a.start_time < b.start_time)
 					return -1;
