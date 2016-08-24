@@ -74,7 +74,7 @@
 			}
 
 			$this->payment = $this->price;
-			$this->price = round($this->payment + ($this->payment * ($billing_info['percent'] / 100)) + $billing_info['add'],2);
+			$this->price = round($this->payment + ($this->payment * ($billing_info['percent'] / 100)) + $billing_info['add'],2, PHP_ROUND_HALF_DOWN);
 			$this->price1 = floor($this->price);
 			$this->price2 = floor(($this->price - $this->price1) * 100);
 
