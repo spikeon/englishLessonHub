@@ -15,7 +15,7 @@
 		?>
 		<script>
 			<?php echo "var teacher = ". json_encode($teacher).";"; ?>
-
+			console.log(teacher);
 			function compare_start_time(a, b) {
 				if (a.start_time < b.start_time)
 					return -1;
@@ -164,7 +164,7 @@
 									//}
 									//else {
 									//	ampm = 'am';
-									//}	 
+									//}
 
 									$content.append($("<div class='col-md-4'></div>").append($("<div class='btn btn-primary' style='margin-bottom: 10px;' date='" + time.getTime() + "'>" + hours + ":" + (time.getMinutes() < 9 ? "0" : "") + time.getMinutes() + " " + ampm + "</div>").click(function () {
 										window.location = "book.php?teacher=<?php echo $teacher->id; ?>&time=" + $(this).attr('date');

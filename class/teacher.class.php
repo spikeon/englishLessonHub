@@ -75,8 +75,9 @@
 
 			$this->payment = $this->price;
 			$this->price = round($this->payment + ($this->payment * ($billing_info['percent'] / 100)) + $billing_info['add'],2, PHP_ROUND_HALF_DOWN);
-			$this->price1 = floor($this->price);
-			$this->price2 = floor(($this->price - $this->price1) * 100);
+			list($this->price1, $this->price2) = explode('.', (string) $this->price);
+			//$this->price1 = floor($this->price);
+			//$this->price2 = floor(($this->price - $this->price1) * 100);
 
 			foreach($db->query("SELECT * FROM ip WHERE teacher_id = {$id}") as $ip){
 				$this->ips[] = $ip['address'];
