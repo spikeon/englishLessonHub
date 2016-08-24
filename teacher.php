@@ -154,16 +154,18 @@
 									var time = new Date(v * 1);
 									var hours = time.getHours();
 									var ampm = '';
-									if (hours > 12) {
-										hours -= 12;
-										ampm = 'pm';
-									} else if (hours === 0) {
-										hours = 12;
-										ampm = 'am';
-									}
-									else {
-										ampm = 'am';
-									}
+
+									//if (hours > 12) {
+									//	hours -= 12;
+									//	ampm = 'pm';
+									//} else if (hours === 0) {
+									//	hours = 12;
+									//	ampm = 'am';
+									//}
+									//else {
+									//	ampm = 'am';
+									//}	 
+
 									$content.append($("<div class='col-md-4'></div>").append($("<div class='btn btn-primary' style='margin-bottom: 10px;' date='" + time.getTime() + "'>" + hours + ":" + (time.getMinutes() < 9 ? "0" : "") + time.getMinutes() + " " + ampm + "</div>").click(function () {
 										window.location = "book.php?teacher=<?php echo $teacher->id; ?>&time=" + $(this).attr('date');
 									})));
