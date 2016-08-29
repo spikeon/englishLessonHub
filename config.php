@@ -1,6 +1,14 @@
 <?php
 	session_start();
 
+	require_once('class/Logging.class.php');
+
+	$main_log = new Logging();
+	$chron_log = new Logging();
+
+	$main_log->lfile('./mainlog.txt');
+	$chron_log->lfile('./chronlog.txt');
+
 	if($_SERVER['HTTP_HOST'] == 'english'){
 		$db_info = [
 			'db' => 'english',
