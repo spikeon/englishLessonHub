@@ -1,4 +1,0 @@
--- Starting to run automatically -- 
-
-[29/Aug/2016:18:15:20] () Removed 0 bad bookings with 1 errors.
-[29/Aug/2016:18:16:09] () Removed 0 bad bookings with 0 errors.
