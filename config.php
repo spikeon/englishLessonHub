@@ -27,6 +27,13 @@
 			'user' => 'justin28_english',
 			'pass' => 'ZRJT9b=%%yJT'
 		];
+	} else {
+		// chron
+		$db_info = [
+			'db'	=> 'englis06_elh',
+			'user' => 'englis06_elh',
+			'pass' => "B99^o9tw2N;i"
+		];
 	}
 
 	$admin_info = [
