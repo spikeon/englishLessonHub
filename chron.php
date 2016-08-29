@@ -19,3 +19,4 @@
 		}
 	}
 	$chron_log->lwrite("Removed {$removed} bad bookings with {$errors} errors.");
+	echo "Cron Job Ran.  Removed {$removed} bad bookings with {$errors} errors.";
