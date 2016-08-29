@@ -24,13 +24,13 @@
 		}
 		if(!$failed){
 			// Free Class, don't go to paypal
-			$sth = $db->prepare("INSERT INTO class (teacher_id, student_id, start_time, end_time, status, free) VALUES (?,?,?,?,?, 1)");
-			$sth->execute(array($teacher->id, login_id(), $_GET['time'], ($_GET['time']/1000 + ($teacher->duration * 60))*1000, 'free'));
+			$sth = $db->prepare("INSERT INTO class (teacher_id, student_id, start_time, end_time, status, free, time) VALUES (?,?,?,?,?, 1, ?)");
+			$sth->execute([$teacher->id, login_id(), $_GET['time'], ($_GET['time']/1000 + ($teacher->duration * 60))*1000, 'free', time()]);
 			?><div class="alert alert-success">You are successfully signed up for this class</div><?php
 		} else {
 			// This class is not free, go to paypal
 			$sth = $db->prepare("INSERT INTO class (teacher_id, student_id, start_time, end_time, status) VALUES (?,?,?,?,?)");
-			$sth->execute(array($teacher->id, login_id(), $_GET['time'], ($_GET['time']/1000 + ($teacher->duration * 60))*1000, 'init'));
+			$sth->execute([$teacher->id, login_id(), $_GET['time'], ($_GET['time']/1000 + ($teacher->duration * 60))*1000, 'init', time()]);
 			$iid = $db->lastInsertId();
 			?><script>window.location = 'payment_start.php?id=<?php echo $iid;?>&price=<?php echo $teacher->price;?>';</script><?php
 		}
