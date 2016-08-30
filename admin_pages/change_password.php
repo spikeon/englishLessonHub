@@ -12,7 +12,7 @@ if(!empty($_POST)){
 else{
 ?>
 
-<form method="post" enctype="multipart/form-data"  data-enable-shim="true">
+<form method="post" enctype="multipart/form-data">
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">

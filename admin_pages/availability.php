@@ -23,7 +23,7 @@
 	echo "<div class=\"well\"><ol><li>Create your availability by selecting \"Add New\", then pick the day of the week and your available times.</li><li>To delete a day’s availability simply \"Remove\"</li></ol><p>Once your availability has been set each day’s availability will repeat each subsequent week on your calendar.</p></div>";
 
 	$teacher = get_teacher(login_id());
-	echo "<form method='post'  data-enable-shim='true'>
+	echo "<form method='post'>
 			<div  id='availabilityadmin'>
 			<div class='row'>
 				<div class='col-md-3'>Day of Week</div>

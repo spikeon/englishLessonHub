@@ -54,7 +54,8 @@
 
 			$this->desc = nl2br(substr(strip_tags($this->description), 0, 250));
 
-			$this->thumb = "phpThumb/".phpThumbURL("src=".ELH_DIR_URL."/uploads/{$this->photo}&w=150&h=190&zc=y");
+			if($this->photo) $this->thumb = "phpThumb/".phpThumbURL("src=".ELH_DIR_URL."/uploads/{$this->photo}&w=150&h=190&zc=y");
+			else $this->thumb = false;
 
 			$this->stars = get_stars($this->id);
 			$this->availability = [];
@@ -76,8 +77,6 @@
 			$this->payment = $this->price;
 			$this->price = round($this->payment + ($this->payment * ($billing_info['percent'] / 100)) + $billing_info['add'],2, PHP_ROUND_HALF_DOWN);
 			list($this->price1, $this->price2) = explode('.', (string) $this->price);
-			//$this->price1 = floor($this->price);
-			//$this->price2 = floor(($this->price - $this->price1) * 100);
 
 			foreach($db->query("SELECT * FROM ip WHERE teacher_id = {$id}") as $ip){
 				$this->ips[] = $ip['address'];
