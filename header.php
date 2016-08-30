@@ -12,11 +12,11 @@
 
 	<?php /* <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> */ ?>
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="node_modules/js-webshim/minified/polyfiller.js"></script>
+	<script src="html5form.js"></script>
 	<script>
-        webshim.activeLang('en');
-        webshims.polyfill('forms');
-        webshims.cfg.no$Switch = true;
+	$(function(){
+		$('form').html5form();
+	});
     </script>
 
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
