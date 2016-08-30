@@ -12,7 +12,14 @@
 
 	<?php /* <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> */ ?>
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="node_modules/html5formshim/build/jquery.html5form.min.js"></script>
+
+	<script src="node_modules/js-webshim/minified/polyfiller.js"></script>
+
+	<script>
+        webshim.activeLang('en');
+        webshims.polyfill('forms');
+        webshims.cfg.no$Switch = true;
+    </script>
 
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">
