@@ -13,7 +13,7 @@
 	<?php /* <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> */ ?>
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
 
-	<script src="node_modules/js-webshim/minified/polyfiller.js"></script>
+	<script src="node_modules/webshim/js-webshim/minified/polyfiller.js"></script>
 
 	<script>
         webshim.activeLang('en');
