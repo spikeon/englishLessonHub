@@ -16,14 +16,14 @@ else{
 	<div class="row">
 		<div class="col-md-6">
 			<div class="form-group">
-				<label class="sr-only" for="password1" required>First Name</label>
-				<input type="password" class="form-control" id="password1" name="pw1" value="" placeholder="Password">
+				<label class="sr-only" for="password1">First Name</label>
+				<input type="password" class="form-control" id="password1" name="pw1" value="" placeholder="Password" required>
 			</div>
 		</div>
 		<div class="col-md-6">
 			<div class="form-group">
-				<label class="sr-only" for="password2" required>First Name</label>
-				<input type="password" class="form-control" id="password2" name="pw2" value="" placeholder="Verify Password">
+				<label class="sr-only" for="password2">First Name</label>
+				<input type="password" class="form-control" id="password2" name="pw2" value="" placeholder="Verify Password" required>
 			</div>
 		</div>
 	</div>
