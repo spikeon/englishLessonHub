@@ -19,6 +19,12 @@
         webshim.activeLang('en');
         webshims.polyfill('forms forms-ext');
 		webshim.setOptions('extendNative', true);
+		webshim.setOptions('forms', {
+			//set lazyCustomMessages to true
+			lazyCustomMessages: true,
+			//show custom styleable validation bubble
+			replaceValidationUI: true
+		});
         webshims.cfg.no$Switch = true;
     </script>
 
