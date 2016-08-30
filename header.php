@@ -18,7 +18,7 @@
 	<script>
         webshim.activeLang('en');
         webshims.polyfill('forms forms-ext');
-        //webshims.cfg.no$Switch = true;
+        webshims.cfg.no$Switch = true;
     </script>
 
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
