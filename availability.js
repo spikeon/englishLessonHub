@@ -8,8 +8,8 @@ $(function(){
 		});
 
 		$admin.find('.newavail').click(function(){
-			var $new = $admin.find('.availtemplate').clone(true,true).show().removeClass('availtemplate');
-			$new.clonePolyfill();
+			var $new = $admin.find('.availtemplate').clonePolyfill().show().removeClass('availtemplate');
+
 			$new.find('.has-error').removeClass('has-error');
 			$new.find('.has-success').removeClass('has-success');
 			availctr++;
