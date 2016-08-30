@@ -12,12 +12,7 @@
 
 	<?php /* <script src="//code.jquery.com/jquery-1.11.3.min.js"></script> */ ?>
 	<script src="node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="html5form.js"></script>
-	<script>
-	$(function(){
-		$('form').html5form();
-	});
-    </script>
+	<script src="node_modules/html5formshim/build/jquery.html5form.min.js"></script>
 
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">

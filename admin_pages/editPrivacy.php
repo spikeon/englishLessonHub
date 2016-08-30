@@ -13,7 +13,7 @@ if(!empty($_POST)){
 }
 ?>
 
-<form method="post">
+<form method="post"  data-enable-shim="true">
 	<textarea name="content" id="content" rows="20" cols="80"><?php
 		$name = 'privacy';
 		$stmt2 = $db->prepare("SELECT * FROM pages WHERE name = ?");

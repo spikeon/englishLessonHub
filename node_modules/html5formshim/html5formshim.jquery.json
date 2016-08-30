@@ -1,0 +1,34 @@
+{
+    "name": "html5formshim",
+    "title": "HTML5 Form Shim",
+    "description": "jQuery plugin, which brings HTML5 Form support on legacy browsers and allow to extend and customize it on new ones",
+    "version": "2.3.1",
+    "author": {
+        "name": "Dmitry Sheiko",
+        "url": "http://dsheiko.com"
+    },
+    "homepage": "http://demo.dsheiko.com/html5formshim/",
+    "main": "./js/jquery.html5form.js",
+    "dependencies": {
+        "jquery": ">= 1.7.1"
+    },
+    "licenses": [
+    	{
+    		"type": "MIT",
+    		"url": "http://github.com/fawek/codepainter/raw/master/LICENSE"
+    	}
+    ],
+    "maintainers": [
+    	{
+    		"name": "Dmitry Sheiko",
+    		"email": "me@dsheiko.com",
+    		"web": "http://dsheiko.com"
+    	}
+    ],
+    "repositories": [
+    	{
+            "type": "git",
+            "url": "https://dsheiko@github.com/dsheiko/HTML5-Form-Shim.git"
+    	}
+    ]
+}

@@ -52,7 +52,7 @@
 		if(login_type() == 'teacher') $user = get_teacher(login_id());
 		else if (login_type() == 'student') $user = get_student(login_id());
 		?>
-		<form method="post">
+		<form method="post"  data-enable-shim="true">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">

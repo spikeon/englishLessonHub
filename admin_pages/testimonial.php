@@ -43,7 +43,7 @@
 			$content = $stmt->fetch(PDO::FETCH_ASSOC);
 		}
 		?>
-			<form method="post">
+			<form method="post"  data-enable-shim="true">
 				<div class="row">
 					<div class="col-md-12">
 						<div class="form-group">
