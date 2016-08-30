@@ -18,6 +18,7 @@
 	<script>
         webshim.activeLang('en');
         webshims.polyfill('forms forms-ext');
+		webshim.setOptions('extendNative', true);
         webshims.cfg.no$Switch = true;
     </script>
 
