@@ -14,8 +14,10 @@
 
 		?>
 		<script>
-			<?php echo "var teacher = ". json_encode($teacher).";"; ?>
-//			console.log(teacher);
+			<?php
+				echo "var teacher = ". json_encode($teacher).";";
+			?>
+
 			function compare_start_time(a, b) {
 				if (a.start_time < b.start_time)
 					return -1;
@@ -190,7 +192,7 @@
 
 			<div class="row">
 				<div class="col-md-2 col-xs-6">
-					<img src="<?php echo $teacher->thumb; ?>">
+					<?php if($teacher->thumb) { ?><img src="<?php echo $teacher->thumb; ?>"><?php } ?>
 				</div>
 				<div class="col-md-8 hidden-xs">
 					<a href="teacher.php?id=<?php echo $teacher->id; ?>"
