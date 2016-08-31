@@ -13,7 +13,7 @@
 	$main_log->lfile('./mainlog.txt');
 	$chron_log->lfile('./chronlog.txt');
 
-	$db_info = [ 'db' => $_ENV['db_name'], 'user' => $_ENV['db_user'], 'pass' => $_ENV['db_pass'] ];
+	$db_info = [ 'db' => $_ENV['db_name'], 'user' => $_ENV['db_user'], 'pass' => $_ENV['db_password'] ];
 
 	$admin_info = [ 'username' => $_ENV['admin_username'], 'password' => $_ENV['admin_password'], 'email' => $_ENV['admin_email'] ];
 
