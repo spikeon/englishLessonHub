@@ -29,9 +29,10 @@
 
 			var day_times = {};
 			var events_list = [];
+			var days_ahead = 1;
 
 			$(document).ready(function () {
-				var avail_start = new Date(new Date().getTime() + 48 * 60 * 60 * 1000);
+				var avail_start = new Date(new Date().getTime() + days_ahead * 24 * 60 * 60 * 1000);
 				var avail_end = new Date(avail_start.getFullYear(), avail_start.getMonth() + 2, avail_start.getDate());
 				events_list = [
 					{
