@@ -88,7 +88,7 @@
 					var start_time = new Date(c.start_time * 1);
 
 					var $new = $("<li class='list-group-item'></li>");
-					$new.html("<b>"+ c.partner + "</b> "+ c.formatted_time +" "+ timestamp(start_time));
+					$new.html("<b>"+ c.partner + "</b> "+ c.formatted_date +" "+ timestamp(start_time));
 					$new.append( $("<div class='btn btn-danger pull-right btn-sm' style='margin-top: -5px;'>Cancel</div>").data('whatever', c).click(function(){ $('#cancelModal').data('whatever', $(this).data('whatever')).modal(); } ) );
 					$('.classpanel').find('.list-group').append($new);
 				}
