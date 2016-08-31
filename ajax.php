@@ -46,21 +46,16 @@
 			$refund_id = $_GET['txnid'];
 			$msg = $_GET['msg'];
 			$to = $_GET['to'];
-
+			$course = new course($course_id);
 			if($msg){
 				$email = "";
 				if($to == 'teacher') {
-					$teacher = new teacher($teacher_id);
-					$email = $teacher->email;
-					$msg = 'A course that you were scheduled for was canceled.  '."\n\r".'Reason: '. $msg;
+					$course->teacher->send_mail("Course Canceled", "<p>Dear Teacher,</p><p>Your class with {$course->student->name} on {$course->formatted_date} has been canceled.</p><p>Please try to keep cancellations to a minimum, as cancellations may reflect on your ratings. </p>");
+					$course->student->send_mail("Course Canceled", "<p>Dear Student,</p><p>You have cancelled your lesson with {$course->teacher->name} for {$course->formatted_date}.  You will not be charged for this lesson because you cancelled 24 hours before.  And don't give up on your English studies.  The longer you wait between classes, the harder it is to begin again.  Book another lesson now, it's for your future!</p>");
 				} else {
-					$student = new student($student_id);
-					$email = $student->email;
-					$msg = 'A course that you booked on English Lesson Hub has been canceled.  '."\n\r".'Reason: '. $msg ."\r\n". 'If you paid for this class you have been refunded.';
+					$course->teacher->send_mail("Course Canceled", "<p>Dear Teacher,</p><p>Your class with {$course->student->name} on {$course->formatted_date} has been canceled.</p>");
+					$course->student->send_mail("Course Canceled", "<p>Dear Student,</p><p>We're sorry to inform you that {$course->teacher->name} has had to cancel for the lesson on {$course->formatted_date}.  Sometimes these things happen.  Book another lesson soon.  Gaps between lessons cause gaps in your knowledge of English!</p><p>Reason for cancelation: {$msg}</p>");
 				}
-
-				mail($email,'Class Canceled', $msg);
-
 			}
 
 			if(!$refund_id){
@@ -107,6 +102,31 @@
 				}
 			}
 			break;
+
+		case "teacher_missed":
+			$course_id = $_GET['cid'];
+			$course->teacher->send_mail("You missed your class", "<p>Dear teacher,</p><p>You have missed your class with {$course->student->name} for {$course->formatted_date}.  We regret to inform you that the lesson wasn't cancelled within 24 hours of the lesson and you have received a rating of 0 and you have not received the payment for this course.  Please try and cancel a minimum of 24 hours ahead in order to avoid any further unnecessary charges in the future.</p><p><a href='".BASE_URL."/terms.php'>Terms and Conditions</a></p>");
+			$course->student->send_mail("The teacher missed your class", "<p>Dear student,</p><p>We appologize for {$course->student->name} missing your class on {$course->formatted_date}.  We have processed your refund.  Have a great day.</p><p><a href='".BASE_URL."/terms.php'>Terms and Conditions</a></p>");
+			break;
+
+		case "student_missed":
+			$course_id = $_GET['cid'];
+			$course = new course($course_id);
+			$course->student->send_mail("You missed your class", "<p>Dear student,</p><p>You have missed your class with {$course->teacher->name} for {$course->formatted_date}.  We regret to inform you that the lesson wasn't cancelled within 24 hours of the lesson and your account has been charged.  Please try and cancel a minimum of 24 hours ahead in order to avoid any further unnecessary charges in the future.</p><p><a href='".BASE_URL."/terms.php'>Terms and Conditions</a></p>");
+			break;
+
+		case "teacher_attended":
+			$course_id = $_GET['cid'];
+			$course->teacher->send_mail("Thanks for attending your class", "<p>Dear teacher,</p><pThank you for using ELH.  We hope your lesson has gone well and we expect to have more students in the future.  We are currently promoting the site and hope to see an influx of students in the near future.  Always remember to provide your best performance and maximum professionalism, as better ratings will attract more students.  </p>");
+			break;
+
+		case "student_attended":
+			$course_id = $_GET['cid'];
+			$course = new course($course_id);
+			$course->student->send_mail("Thanks for attending your class", "<p>Dear student,</p><p>Thank you for using ELH!  We are glad to see that you have begun your learning experience with us and hope it has been a good one.</p>");
+			break;
+
+
 		case "payout":
 
 			$teacher_id = $_GET['tid'];

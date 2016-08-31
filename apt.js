@@ -135,6 +135,12 @@ function myTimer() {
 				}
 				else $('.after .message').text("Thank you for teaching!");
 
+				$.getJSON('ajax.php',{
+						query: 'teacher_attended',
+						cid: $('div.info').data('cid')
+				},function (data) {});
+
+
 			}
 			if ($('div.info').data('type') == 'teacher' && !not_alone) {
 				if($('div.info').data('free') * 1 != 1) {
@@ -150,15 +156,26 @@ function myTimer() {
 
 						}
 					);
+
 				}
 				else $('.after .message').text("Thank you for Waiting! It appears that the student has missed their lesson.");
+				$.getJSON('ajax.php',{
+						query: 'student_missed',
+						cid: $('div.info').data('cid')
+				},function (data) {});
+
 			}
 
 			if ($('div.info').data('type') == 'student' && not_alone) {
 				$('.after .message').html("Please rate your Lesson!<br><br><div style='text-align: center;' class='rate'></div></div>");
 				rate();
+				$.getJSON('ajax.php',{
+						query: 'student_attended',
+						cid: $('div.info').data('cid')
+				},function (data) {});
+
 			}
-			
+
 			if ($('div.info').data('type') == 'student' && !not_alone) {
 				$('.after .message').text("We see the teacher didn't show up.  We are sorry for the inconvenience and have issued a refund to you and given the teacher a zero star rating for this lesson.");
 				$.getJSON(
@@ -187,6 +204,11 @@ function myTimer() {
 						}
 					);
 				}
+				$.getJSON('ajax.php',{
+						query: 'teacher_missed',
+						cid: $('div.info').data('cid')
+				},function (data) {});
+
 			}
 		}
 	}
