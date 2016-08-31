@@ -39,7 +39,7 @@ if(login_type() == 'teacher'){
 	$teacher = get_teacher(login_id());
 	?>
 
-		<form method="post" enctype="multipart/form-data"  data-enable-shim="true">
+		<form method="post" enctype="multipart/form-data">
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
@@ -182,7 +182,7 @@ if(!empty($_POST)){
 }
 	$student = get_student(login_id());
 	?>
-	<form method="post" enctype="multipart/form-data"  data-enable-shim="true">
+	<form method="post" enctype="multipart/form-data">
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
