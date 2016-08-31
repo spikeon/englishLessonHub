@@ -29,10 +29,16 @@ if(!empty($_POST)){
 		//TODO: Make password reset email
 
 		$to = $_POST['email'];
+
 		$subject = 'ELH Password Reset';
-		$message = 'Your new password is: '.$pw;
+		
+		//$message = 'Your new password is: '.$pw;
 
 		//mail($to, $subject, $message, $headers);
+
+		$message = "Hello {$type},
+ 		<p>Your new password is: {$pw}</p>
+		<p>Feel free to contact us if you have any problems: <a href='".BASE_URL."/contact.php'>Contact Form</a></p>";
 
 		send_mail($to, $subject, $message);
 
