@@ -48,10 +48,7 @@ use PayPal\Service\PayPalAPIInterfaceServiceService;
 
 
 	?>
-
 		<div class="alert alert-success">You are now signed up for the class</div>
 	<?php
 
 	include('footer.php');
-
-

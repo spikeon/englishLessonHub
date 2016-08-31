@@ -83,7 +83,7 @@
 				try {
 					$ch = curl_init();
 					if (FALSE === $ch) throw new Exception('failed to initialize');
-					curl_setopt($ch, CURLOPT_URL, 'https://api-3t.sandbox.paypal.com/nvp');
+					curl_setopt($ch, CURLOPT_URL, 'https://api-3t.paypal.com/nvp');
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
 					curl_setopt($ch, CURLOPT_POST, 1);

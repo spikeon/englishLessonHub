@@ -103,6 +103,6 @@
 
 	require ('vendor/autoload.php');
 
-	$apiContext = getApiContext($pp_app_config['id'], $pp_app_config['secret'], $pp_config['mode'] == 'sandbox');
+	$apiContext = getApiContext($pp_app_config['id'], $pp_app_config['secret']);
 	check_ip();
 	listen_for_cookie();
