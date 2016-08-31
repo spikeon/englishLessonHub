@@ -186,14 +186,14 @@ if(!empty($_POST)){
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="firstname" required>First Name</label>
-					<input type="text" class="form-control" id="firstname" name="first_name" placeholder="First Name" value="<?php echo $student->first_name; ?>">
+					<label for="firstname">First Name</label>
+					<input type="text" required class="form-control" id="firstname" name="first_name" placeholder="First Name" value="<?php echo $student->first_name; ?>">
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="lastname" required>Last Name</label>
-					<input type="text" class="form-control" id="lastname" name="last_name" placeholder="Last Name" value="<?php echo $student->last_name; ?>">
+					<label for="lastname">Last Name</label>
+					<input type="text" required class="form-control" id="lastname" name="last_name" placeholder="Last Name" value="<?php echo $student->last_name; ?>">
 				</div>
 			</div>
 		</div>
@@ -201,14 +201,14 @@ if(!empty($_POST)){
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="email" required>Email address</label>
-					<input type="email" class="form-control" id="email" name="email" placeholder="Email"  value="<?php echo $student->email; ?>" disabled>
+					<label for="email">Email address</label>
+					<input type="email" required class="form-control" id="email" name="email" placeholder="Email"  value="<?php echo $student->email; ?>" disabled>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<label for="username" required>Username</label>
-					<input type="text" class="form-control" id="username" name="username" placeholder="Username"  value="<?php echo $student->username; ?>" disabled>
+					<label for="username">Username</label>
+					<input type="text" required class="form-control" id="username" name="username" placeholder="Username"  value="<?php echo $student->username; ?>" disabled>
 				</div>
 			</div>
 		</div>

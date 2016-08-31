@@ -51,8 +51,8 @@
 	<a class="btn btn-primary" href="appointment.php">Go to Blackboard</a>
 
 	<h4>CANCELLATION POLICY:</h4>
-	Cancellation of a lesson with 3 days or more = NO charge<br>
-	Cancellation of a lesson under 3 days = NO refund<br>
+	Cancellation of a lesson with 1 day or more = NO charge<br>
+	Cancellation of a lesson under 1 day = NO refund<br>
 
 
 	<script>
@@ -92,7 +92,7 @@
 					var start_time = new Date(c.start_time * 1);
 
 					var $new = $("<li class='list-group-item'></li>");
-					$new.html("<b>"+ c.partner + "</b> "+ timeStamp(start_time));
+					$new.html("<b>"+ c.partner + "</b> "+ c.formatted_time);
 					$new.append( $("<div class='btn btn-danger pull-right btn-sm' style='margin-top: -5px;'>Cancel</div>").data('whatever', c).click(function(){ $('#cancelModal').data('whatever', $(this).data('whatever')).modal(); } ) );
 					$('.classpanel').find('.list-group').append($new);
 				}
