@@ -116,14 +116,13 @@ if(!empty($_POST)){
 		foreach ($_POST as $k => $v) $info[$k] = $v;
 		$student = new student(false, $info);
 
-		$to = $info['email'];
 		$subject = 'Welcome to ELH';
 		$message = "Hello Student,
 		<p>Thank you for signing up with ELH. </p>
 		<p>Feel free to contact us if you have any problems: <a href='".BASE_URL."/contact.php'>Contact Form</a></p>
 		<p><a href='".BASE_URL."/login.php'>Click here to Login</a></p>
 		";
-		send_mail($to, $subject, $message);
+		$student->send_mail($subject, $message);
 
 
 		?>

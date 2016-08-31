@@ -104,5 +104,8 @@
 			return false;
 		}
 
+		public function send_mail($subject, $msg){
+			return send_mail($this->email, $subject, $msg);
+		}
 
 	}
