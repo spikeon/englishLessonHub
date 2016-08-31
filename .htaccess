@@ -1,3 +1,8 @@
 RewriteEngine On
 RewriteCond %{QUERY_STRING} _escaped_fragment_=(.*)
 RewriteRule ^index.php /cal/index.php?controller=pjFrontPublic&action=pjActionRouter&_escaped_fragment_=%1 [L,NC]
+
+<Files ".env">
+Order Allow,Deny
+Deny from all
+</Files>
