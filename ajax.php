@@ -64,6 +64,7 @@
 			}
 
 			if(!$refund_id){
+				$paypal_log->lwrite("Free 'Refund' Processed.  Course id: {$course_id}.");
 				$c = $db->prepare("UPDATE class SET status = 'Refunded' WHERE id = {$course_id}");
 				$c->execute();
 			}
@@ -94,7 +95,7 @@
 					if (FALSE === $content) throw new Exception(curl_error($ch), curl_errno($ch));
 
 					else {
-						$paypal_log("Refund Processed.  Course id: {$course_id}.");
+						$paypal_log->lwrite("Refund Processed.  Course id: {$course_id}.");
 						$c = $db->prepare("UPDATE class SET status = 'Refunded' WHERE id = {$course_id}");
 						$c->execute();
 					}
@@ -134,7 +135,7 @@
 
 			try {
 				$output = $payouts->createSynchronous($apiContext);
-				$paypal_log("Teacher Paid.  Course id: {$course_id}.");
+				$paypal_log->lwrite("Teacher Paid.  Course id: {$course_id}.");
 				$c = $db->prepare("UPDATE class SET status = 'PaidOut' WHERE id = {$course_id}");
 				$c->execute();
 			} catch (Exception $ex) {
