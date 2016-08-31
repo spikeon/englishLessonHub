@@ -9,6 +9,7 @@
 
 	$main_log = new Logging();
 	$chron_log = new Logging();
+	$paypal_log = new Logging();
 
 	$main_log->lfile('./mainlog.txt');
 	$chron_log->lfile('./chronlog.txt');
