@@ -43,14 +43,14 @@ if(login_type() == 'teacher'){
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="firstname" required>First Name</label>
-						<input type="text" class="form-control" id="firstname" name="first_name" value="<?php echo $teacher->first_name; ?>" placeholder="First Name">
+						<label for="firstname">First Name</label>
+						<input type="text" required class="form-control" id="firstname" name="first_name" value="<?php echo $teacher->first_name; ?>" placeholder="First Name">
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="lastname" required>Last Name</label>
-						<input type="text" class="form-control" id="lastname" name="last_name" value="<?php echo $teacher->last_name; ?>" placeholder="Last Name">
+						<label for="lastname">Last Name</label>
+						<input type="text" required class="form-control" id="lastname" name="last_name" value="<?php echo $teacher->last_name; ?>" placeholder="Last Name">
 					</div>
 				</div>
 			</div>
@@ -58,13 +58,13 @@ if(login_type() == 'teacher'){
 			<div class="row">
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="email" required>Email address</label>
+						<label for="email">Email address</label>
 						<input type="email" class="form-control" id="email" name="email" placeholder="Email"  value="<?php echo $teacher->email; ?>" disabled>
 					</div>
 				</div>
 				<div class="col-md-6">
 					<div class="form-group">
-						<label for="username" required>Username</label>
+						<label for="username">Username</label>
 						<input type="text" class="form-control" id="username" name="username" placeholder="Username"  value="<?php echo $teacher->username; ?>" disabled>
 					</div>
 				</div>
