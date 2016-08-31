@@ -156,7 +156,7 @@
 									var time = new Date(v * 1);
 									var hours = time.getHours();
 
-									$content.append($("<div class='col-md-4'></div>").append($("<div class='btn btn-primary' style='margin-bottom: 10px;' date='" + time.getTime() + "'>" + hours + ":" + (time.getMinutes() < 9 ? "0" : "") + time.getMinutes() + " " + ampm + "</div>").click(function () {
+									$content.append($("<div class='col-md-4'></div>").append($("<div class='btn btn-primary' style='margin-bottom: 10px;' date='" + time.getTime() + "'>" + hours + ":" + (time.getMinutes() < 9 ? "0" : "") + time.getMinutes() + "</div>").click(function () {
 										window.location = "book.php?teacher=<?php echo $teacher->id; ?>&time=" + $(this).attr('date');
 									})));
 

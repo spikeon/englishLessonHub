@@ -12,6 +12,7 @@
 
 	$main_log->lfile('./mainlog.txt');
 	$chron_log->lfile('./chronlog.txt');
+	$paypal_log->lfile('./paypallog.txt');
 
 	$db_info = [ 'db' => $_ENV['db_name'], 'user' => $_ENV['db_user'], 'pass' => $_ENV['db_password'] ];
 
