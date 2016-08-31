@@ -3,6 +3,9 @@
 
 	require_once('vendor/autoload.php');
 	require_once('class/Logging.class.php');
+	require_once('phpThumb/phpthumb.functions.php');
+	require_once('phpThumb/phpthumb.class.php');
+
 
 	$dotenv = new Dotenv\Dotenv(__DIR__);
 	$dotenv->load();
@@ -50,8 +53,6 @@
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	define("ELH_DEBUG", true);
 
-	require_once('phpThumb/phpthumb.functions.php');
-	require_once('phpThumb/phpthumb.class.php');
 	$phpThumb = new phpThumb();
 	if (include_once('phpThumb/phpThumb.config.php')) {
 		foreach ($PHPTHUMB_CONFIG as $key => $value) {

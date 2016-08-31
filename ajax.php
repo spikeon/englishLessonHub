@@ -83,6 +83,7 @@
 				try {
 					$ch = curl_init();
 					if (FALSE === $ch) throw new Exception('failed to initialize');
+
 					curl_setopt($ch, CURLOPT_URL, 'https://api-3t.paypal.com/nvp');
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -91,13 +92,17 @@
 					curl_setopt($ch, CURLOPT_SSLVERSION, 6);
 					$content = curl_exec($ch);
 					if (FALSE === $content) throw new Exception(curl_error($ch), curl_errno($ch));
+
 					else {
+						$paypal_log("Refund Processed.  Course id: {$course_id}.");
 						$c = $db->prepare("UPDATE class SET status = 'Refunded' WHERE id = {$course_id}");
 						$c->execute();
 					}
 
 				} catch (Exception $e) {
-					trigger_error(sprintf('Curl failed with error #%d: %s', $e->getCode(), $e->getMessage()), E_USER_ERROR);
+					$msg = sprintf('Curl failed with error #%d: %s', $e->getCode(), $e->getMessage());
+					$paypal_log->lwrite("Error [{$course_id}]:{$msg}");
+					trigger_error($msg, E_USER_ERROR);
 				}
 			}
 			break;
@@ -109,7 +114,6 @@
 			$teacher = new teacher($teacher_id);
 
 			$payouts = new \PayPal\Api\Payout();
-
 
 			$senderBatchHeader = new \PayPal\Api\PayoutSenderBatchHeader();
 			$senderBatchHeader->setSenderBatchId(uniqid())->setEmailSubject("You have a Payment!");
@@ -130,11 +134,11 @@
 
 			try {
 				$output = $payouts->createSynchronous($apiContext);
+				$paypal_log("Teacher Paid.  Course id: {$course_id}.");
 				$c = $db->prepare("UPDATE class SET status = 'PaidOut' WHERE id = {$course_id}");
 				$c->execute();
 			} catch (Exception $ex) {
-				echo "ERROR";
-				var_dump($ex);
+				$paypal_log("Teacher Payout Error.  Course id: {$course_id}. {$ex->getMessage()}");
 				exit(1);
 			}
 			break;
