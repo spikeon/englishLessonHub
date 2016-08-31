@@ -70,6 +70,7 @@
 			'from_name' => 'English Lesson Hub'
 	];
 
+	$date_format = "d M Y H:i";
 
 	$db = new PDO("mysql:host=localhost;dbname={$db_info['db']};charset=utf8", $db_info['user'], $db_info['pass']);
 	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

@@ -40,7 +40,7 @@
 		public $ban;
 
 		function __construct($id, $new_teacher_info = array()){
-			global $db, $billing_info;
+			global $db, $billing_info, $date_format;
 			if(!$id && !empty($new_teacher_info)) $id = add_teacher($new_teacher_info);
 			else if (!$id) return false;
 			$info = $db->query("SELECT * FROM teacher WHERE id = {$id}")->fetch(PDO::FETCH_ASSOC);
@@ -70,6 +70,7 @@
 			foreach($db->query("SELECT * FROM class WHERE teacher_id = {$id}") as $c){
 
 				$c['partner'] = get_student_name($c['student_id']);
+				$c['formatted_time'] = date($date_format,$c['start_time']);
 
 				$this->classes[] = $c;
 			}

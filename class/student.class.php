@@ -16,7 +16,7 @@ class student {
 	public $ban;
 
 	function __construct($id, $new_teacher_info = array()){
-		global $db;
+		global $db, $date_format;
 		if(!$id) $id = add_student($new_teacher_info);
 		$info = $db->query("SELECT * FROM student WHERE id = {$id}")->fetch(PDO::FETCH_ASSOC);
 		foreach($info as $k => $v) $this->$k = $v;
@@ -25,6 +25,7 @@ class student {
 		foreach($db->query("SELECT * FROM class WHERE student_id = {$id}") as $c){
 			$c['partner'] = get_teacher_name($c['teacher_id']);
 			if($c['free'] == 1) $this->free_classes++;
+			$c['formatted_time'] = date($date_format,$c['start_time']);
 			$this->classes[] = $c;
 		}
 		foreach($db->query("SELECT * FROM ip WHERE student_id = {$id}") as $ip){
