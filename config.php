@@ -1,7 +1,11 @@
 <?php
 	session_start();
 
+	require_once('vendor/autoload.php');
 	require_once('class/Logging.class.php');
+
+	$dotenv = new Dotenv\Dotenv(__DIR__);
+	$dotenv->load();
 
 	$main_log = new Logging();
 	$chron_log = new Logging();
@@ -9,38 +13,9 @@
 	$main_log->lfile('./mainlog.txt');
 	$chron_log->lfile('./chronlog.txt');
 
-	if($_SERVER['HTTP_HOST'] == 'english'){
-		$db_info = [
-			'db' => 'english',
-			'user' => 'root',
-			'pass' => 'm00c0wz88'
-		];
-	}else if ($_SERVER['HTTP_HOST'] == 'englishlessonhub.com' || $_SERVER['HTTP_HOST'] == 'www.englishlessonhub.com') {
-		$db_info = [
-			'db'	=> 'englis06_elh',
-			'user' => 'englis06_elh',
-			'pass' => "B99^o9tw2N;i"
-		];
-	} else if ($_SERVER['HTTP_HOST'] == '5ppdev.com' || $_SERVER['HTTP_HOST'] == 'www.5ppdev.com'){
-		$db_info = [
-			'db'	=> 'justin28_english',
-			'user' => 'justin28_english',
-			'pass' => 'ZRJT9b=%%yJT'
-		];
-	} else {
-		// chron
-		$db_info = [
-			'db'	=> 'englis06_elh',
-			'user' => 'englis06_elh',
-			'pass' => "B99^o9tw2N;i"
-		];
-	}
+	$db_info = [ 'db' => $_ENV['db_name'], 'user' => $_ENV['db_user'], 'pass' => $_ENV['db_pass'] ];
 
-	$admin_info = [
-		'username' 	=> 'admin',
-		'password' 	=> 'elh2016!',
-		'email'		=> 'robbybauer@hotmail.com'
-	];
+	$admin_info = [ 'username' => $_ENV['admin_username'], 'password' => $_ENV['admin_password'], 'email' => $_ENV['admin_email'] ];
 
 	$billing_info = [
 		'percent' 	=> 8.6,
@@ -50,24 +25,21 @@
 
 	$pp_config = [
 		'mode' => 'live',
-		'acct1.UserName' => 'robbybauer_api1.hotmail.com',
-		'acct1.Password' => 'QF8HKXQQJLB2NMS2',
-		'acct1.Signature' => 'Aww0oyur6.mR-CdnjKoRmPVCeHDBASA0Lgz0ilBzKh3059KTyB7u4iMG'
+		'acct1.UserName' => $_ENV['pp_username'],
+		'acct1.Password' => $_ENV['pp_password'],
+		'acct1.Signature' => $_ENV['pp_signature']
 	];
 
-	$pp_app_config = [
-		'id' => 'AbKxI0qChgXyn7HGzmZ5ex3-_ynHcuxowk0he3TqHxhb3MYCWRK4drPlFumYGZI2tC7XFZXgdC9KM68Q',
-		'secret' => 'EAdZToQDUSkzf0SA5CeqMwe-8McukfLzjEKcYXGTVbCGWV4jINbnz9Ty-iSdrMwfhTTufVRv_rwCXg7Q'
-	];
+	$pp_app_config = [ 'id' => $_ENV['pp_app_id'], 'secret' => $_ENV['pp_app_secret'] ];
 
 	$mailConfig = [
-			'server' => 'securees18.sgcpanel.com',
-			'username' => 'admin@englishlessonhub.com',
-			'password' => 'english_A!',
+			'server' => $_ENV['mail_out_server'],
+			'username' => $_ENV['mail_out_username'],
+			'password' => $_ENV['mail_out_password'],
 			'securityType' => 'ssl',
 			'port' => '465',
-			'from' => 'admin@englishlessonhub.com',
-			'from_name' => 'English Lesson Hub'
+			'from' => $_ENV['mail_out_username'],
+			'from_name' => $_ENV['mail_out_from']
 	];
 
 	$date_format = "d M Y";
@@ -98,10 +70,6 @@
 	include('class/teacher.class.php');
 	include('class/student.class.php');
 	include('functions.php');
-
-	//require('PayPal-PHP-SDK/autoload.php');
-
-	require ('vendor/autoload.php');
 
 	$apiContext = getApiContext($pp_app_config['id'], $pp_app_config['secret']);
 	check_ip();
