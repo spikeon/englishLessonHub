@@ -126,13 +126,13 @@ if(!empty($_POST)){
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label class="sr-only" for="firstname" required>First Name</label>
+					<label class="sr-only" for="firstname">First Name</label>
 					<input type="text" class="form-control" id="firstname" name="first_name" placeholder="First Name" required>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<label class="sr-only" for="lastname" required>Last Name</label>
+					<label class="sr-only" for="lastname">Last Name</label>
 					<input type="text" class="form-control" id="lastname" name="last_name" placeholder="Last Name" required>
 				</div>
 			</div>
@@ -141,7 +141,7 @@ if(!empty($_POST)){
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label class="sr-only" for="email" required>Email address</label>
+					<label class="sr-only" for="email">Email address</label>
 					<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="display:none;"></span>
 					<input type="email" class="form-control" id="email" name="email" placeholder="Email"  required>
 					<span class="help-block"  style="display:none;">The chosen email address has already been used</span>
@@ -149,7 +149,7 @@ if(!empty($_POST)){
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<label class="sr-only" for="username" required>Username</label>
+					<label class="sr-only" for="username">Username</label>
 					<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="display:none;"></span>
 					<input type="text" class="form-control" id="username" name="username" placeholder="Username"  required>
 					<span class="help-block"  style="display:none;">The chosen username has already been used</span>
@@ -160,13 +160,13 @@ if(!empty($_POST)){
 		<div class="row">
 			<div class="col-md-6">
 				<div class="form-group">
-					<label class="sr-only" for="password" required>Password</label>
+					<label class="sr-only" for="password">Password</label>
 					<input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<div class="form-group">
-					<label class="sr-only" for="password2" required>Verify Password</label>
+					<label class="sr-only" for="password2">Verify Password</label>
 					<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" style="display:none;"></span>
 					<input type="password" class="form-control" id="password2" placeholder="Verify Password" required>
 				</div>
