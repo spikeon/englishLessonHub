@@ -127,7 +127,7 @@
 		$('#cancelModal').on('show.bs.modal', function (event) {
 
 			var c = $('#cancelModal').data('whatever');
-			alert(c);
+			//alert(c);
 
 			$('#cancelModal .btn-primary').data('whatever', c).click(function(){
 				var c = $(this).data('whatever');
