@@ -62,17 +62,13 @@
 		 */
 
 		function timeStamp(now) {
-			var date = [ now.getMonth() + 1, now.getDate(), now.getFullYear() ];
 			var time = [ now.getHours(), now.getMinutes() ];
-			var suffix = ( time[0] < 12 ) ? "AM" : "PM";
-			time[0] = ( time[0] < 12 ) ? time[0] : time[0] - 12;
-			time[0] = time[0] || 12;
 			for ( var i = 1; i < 3; i++ ) {
 				if ( time[i] < 10 ) {
 					time[i] = "0" + time[i];
 				}
 			}
-			return date.join("/") + " " + time.join(":") + " " + suffix;
+			return time.join(":");
 		}
 
 		function no_future_classes(){
@@ -92,7 +88,7 @@
 					var start_time = new Date(c.start_time * 1);
 
 					var $new = $("<li class='list-group-item'></li>");
-					$new.html("<b>"+ c.partner + "</b> "+ c.formatted_time);
+					$new.html("<b>"+ c.partner + "</b> "+ c.formatted_time +" "+ timestamp(start_time));
 					$new.append( $("<div class='btn btn-danger pull-right btn-sm' style='margin-top: -5px;'>Cancel</div>").data('whatever', c).click(function(){ $('#cancelModal').data('whatever', $(this).data('whatever')).modal(); } ) );
 					$('.classpanel').find('.list-group').append($new);
 				}

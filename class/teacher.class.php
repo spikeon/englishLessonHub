@@ -70,7 +70,7 @@
 			foreach($db->query("SELECT * FROM class WHERE teacher_id = {$id}") as $c){
 
 				$c['partner'] = get_student_name($c['student_id']);
-				$c['formatted_time'] = date($date_format,$c['start_time']);
+				$c['formatted_date'] = date($date_format,$c['start_time']/1000);
 
 				$this->classes[] = $c;
 			}

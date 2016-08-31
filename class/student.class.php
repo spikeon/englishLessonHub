@@ -25,7 +25,7 @@ class student {
 		foreach($db->query("SELECT * FROM class WHERE student_id = {$id}") as $c){
 			$c['partner'] = get_teacher_name($c['teacher_id']);
 			if($c['free'] == 1) $this->free_classes++;
-			$c['formatted_time'] = date($date_format,$c['start_time']);
+			$c['formatted_date'] = date($date_format,$c['start_time'] / 1000);
 			$this->classes[] = $c;
 		}
 		foreach($db->query("SELECT * FROM ip WHERE student_id = {$id}") as $ip){
