@@ -6,7 +6,7 @@
 	$order_id = 0;
 	$error = "";
 	$col = login_type() == 'teacher' ? 'teacher_id' : 'student_id';
-	$stmt = $db->prepare("SELECT * FROM class WHERE {$col} = ? AND end_time > ".(time()*1000)." AND status = 'Completed' OR status = 'free' ORDER BY start_time ASC LIMIT 1");
+	$stmt = $db->prepare("SELECT * FROM class WHERE {$col} = ? AND end_time > ".(time()*1000)." AND ( status = 'Completed' OR status = 'free' ) ORDER BY start_time ASC LIMIT 1");
 	$stmt->bindParam(1, $id);
 	$id = login_id();
 	$stmt->execute();

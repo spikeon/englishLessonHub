@@ -153,10 +153,12 @@ function myTimer() {
 				}
 				else $('.after .message').text("Thank you for Waiting! It appears that the student has missed their lesson.");
 			}
+
 			if ($('div.info').data('type') == 'student' && not_alone) {
 				$('.after .message').html("Please rate your Lesson!<br><br><div style='text-align: center;' class='rate'></div></div>");
 				rate();
 			}
+			
 			if ($('div.info').data('type') == 'student' && !not_alone) {
 				$('.after .message').text("We see the teacher didn't show up.  We are sorry for the inconvenience and have issued a refund to you and given the teacher a zero star rating for this lesson.");
 				$.getJSON(

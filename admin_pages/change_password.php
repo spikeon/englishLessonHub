@@ -1,6 +1,5 @@
 <?php
 if(!empty($_POST)){
-
 	if($_POST['pw1'] == "" || $_POST['pw2'] == "") echo "<div class='alert alert-danger' role='alert'>Passwords Cannot Be Blank</div>";
 	else if($_POST['pw1'] == $_POST['pw2']) {
 		if(login_type() == 'teacher') update_teacher(login_id(), ['password' => $_POST['pw1']]);

@@ -72,6 +72,7 @@
 
 	include('class/teacher.class.php');
 	include('class/student.class.php');
+	include('class/course.class.php');
 	include('functions.php');
 
 	$apiContext = getApiContext($pp_app_config['id'], $pp_app_config['secret']);

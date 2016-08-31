@@ -524,7 +524,7 @@ function array_sort($array, $on, $order=SORT_ASC)
  * @param bool $sandbox Use Sandbox?
  * @return PayPal\Rest\ApiContext
  */
-function getApiContext($clientId, $clientSecret, $sandbox = true)
+function getApiContext($clientId, $clientSecret, $sandbox = false)
 {
 	$apiContext = new \PayPal\Rest\ApiContext(
 		new \PayPal\Auth\OAuthTokenCredential(
