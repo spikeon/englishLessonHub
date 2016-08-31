@@ -26,15 +26,9 @@ if(!empty($_POST)){
 		if($type == 'teacher') update_teacher($id, ['password' => $pw]);
 		else update_student($id, ['password' => $pw] );
 
-		//TODO: Make password reset email
-
 		$to = $_POST['email'];
 
 		$subject = 'ELH Password Reset';
-		
-		//$message = 'Your new password is: '.$pw;
-
-		//mail($to, $subject, $message, $headers);
 
 		$message = "Hello {$type},
  		<p>Your new password is: {$pw}</p>
