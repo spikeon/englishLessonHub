@@ -164,6 +164,45 @@
 			}
 			break;
 
+		case "payout_test":
+
+			//$teacher_id = $_GET['tid'];
+			//$course_id = $_GET['cid'];
+
+			//$teacher = new teacher($teacher_id);
+
+			$payouts = new \PayPal\Api\Payout();
+
+			$senderBatchHeader = new \PayPal\Api\PayoutSenderBatchHeader();
+			$senderBatchHeader->setSenderBatchId(uniqid())->setEmailSubject("You have a Payment!");
+
+			$senderItem = new \PayPal\Api\PayoutItem();
+			$senderItem->setRecipientType('Email')
+				->setNote('Thanks for your patronage!')
+				->setReceiver('spikeon@gmail.com')
+				->setSenderItemId('1')
+				->setAmount(new \PayPal\Api\Currency('{
+                        "value":"1",
+                        "currency":"EUR"
+                    }'));
+
+			$payouts->setSenderBatchHeader($senderBatchHeader)->addItem($senderItem);
+
+			$request = clone $payouts;
+
+			try {
+				$output = $payouts->createSynchronous($apiContext);
+				$paypal_log->lwrite("Teacher Paid (test).  Course id: 1.");
+				//$c = $db->prepare("UPDATE class SET status = 'PaidOut' WHERE id = {$course_id}");
+				//$c->execute();
+			} catch (Exception $ex) {
+				$paypal_log("Teacher Payout Error. (test)  Course id: {$course_id}. {$ex->getMessage()}");
+				exit(1);
+			}
+			break;
+
+
+
 		case "check_in" :
 			$user_id = $_GET['uid'];
 			$course_id = $_GET['cid'];
