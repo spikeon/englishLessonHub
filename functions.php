@@ -517,6 +517,16 @@ function array_sort($array, $on, $order=SORT_ASC)
 	return $new_array;
 }
 
+function getSdkConfig($sandbox = false){
+	return [
+		'log.LogEnabled' => true,
+		'log.FileName' => 'PayPal.log',
+		'log.LogLevel' => 'DEBUG',
+		'cache.enabled' => true,
+		'mode' => $sandbox ? 'sandbox' : 'live',
+	];
+}
+
 /**
  * Helper method for getting an APIContext for all calls
  * @param string $clientId Client ID
@@ -526,20 +536,16 @@ function array_sort($array, $on, $order=SORT_ASC)
  */
 function getApiContext($clientId, $clientSecret, $sandbox = false)
 {
+	$sdkConfig = getSdkConfig($sandbox);
 	$apiContext = new \PayPal\Rest\ApiContext(
 		new \PayPal\Auth\OAuthTokenCredential(
 			$clientId,
-			$clientSecret
+			$clientSecret,
+			$sdkConfig
 		)
 	);
-	$arr = array(
-		'log.LogEnabled' => true,
-		'log.FileName' => 'PayPal.log',
-		'log.LogLevel' => 'DEBUG',
-		'cache.enabled' => true,
-	);
-	if($sandbox) $arr['mode'] = 'sandbox';
-	$apiContext->setConfig( $arr );
+
+	$apiContext->setConfig( $sdkConfig );
 	return $apiContext;
 }
 
